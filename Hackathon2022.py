@@ -11,6 +11,15 @@ def main():
             s_529 = input("Enter your 529 savings amount below: \n")
             s_sav = input("Enter the total of any other savings you may have: \n")
             s_
+    savings()
+    def semester():
+        # input savings amounts
+    semester()
+    def loan():
+        # input loan information
+    loan()
+    def living():
+        # input living expenses
+    living()
     
-
 main()
