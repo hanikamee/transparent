@@ -38,8 +38,16 @@ def main():
             loan_amt = input("Enter the amount of money you were loaned: \n")
             loan_intr = input("Enter the interest rate on the loan you took out (as a whole number, without the percent, such as '5' for 5%):
     loan()
+                              
     def living():
         # input living expenses
+    food_expenses = float(input("Enter your estimated monthly food expenses: "))
+    rent = float(input("Enter your monthly rent"))
+    transportation_expenses = float(input("Enter your monthly transportation costs (bus, car): "))
+    long_distance_transportation = float(input("Enter your yearly transportation costs (plane, metro): "))                      
+    sum_of_living_expenses = food_expenses + rent + transportation_expenses + long_distance_transportation
+    print(sum_of_living_expenses)
+                              
     living()
     
 main()
