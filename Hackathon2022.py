@@ -24,6 +24,12 @@ def main():
     savings()
     def semester():
         # input savings amounts
+        semester_tuition = float(input("Enter your semester's tuition: "))
+        semester_numbers = int(input("How many semester of college have you had?: "))
+        total_tuition = semester_tuition * semester_numbers
+        total_tuition2 = total_tuition - savings_total
+        print('Your total tuition is: ', total_tuition)
+        print('Your total tuition is: ', total_tuition2)
     semester()
     def loan():
         loan_status = input("Have you yet taken out a student loan for tuition? (reply either 'yes' or 'no' \n")
