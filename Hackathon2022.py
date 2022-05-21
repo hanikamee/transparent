@@ -22,32 +22,44 @@ def main():
             savings()
             
     savings()
+    tuition_owed = 0
     def semester():
         # input savings amounts
         semester_tuition = float(input("Enter your semester's tuition: "))
         semester_numbers = int(input("How many semester of college have you had?: "))
         total_tuition = semester_tuition * semester_numbers
-        total_tuition2 = total_tuition - savings_total
+        tuition_owed = total_tuition - savings_total
         print('Your total tuition is: ', total_tuition)
-        print('Your total tuition is: ', total_tuition2)
+        print('Your total tuition, subtracting savings/fafsa/scholarships, is: ', tuition_owed)
+        return tuition_owed
     semester()
     def loan():
-        loan_status = input("Have you yet taken out a student loan for tuition? (reply either 'yes' or 'no' \n")
+        loan_status = input("\n Have you yet taken out a student loan for tuition? (reply either 'yes', 'no', or 'future' for a possible loan in the future. \n")
         if loan_status == 'yes':
-            print("Below, do not enter any special characters. Information below must be provided. \n")
-            loan_amt = input("Enter the amount of money you were loaned: \n")
-            loan_intr = input("Enter the interest rate on the loan you took out (as a whole number, without the percent, such as '5' for 5%):
+            print("\n Below, do not enter any special characters. Information below must be provided. \n")
+            loan_amt = input("\n Enter the amount of money you were loaned: \n")
+            if loan_amt > tuition_owed:
+                print("WARNING: your loan amount is greater than the amount you will owe in tuition. You've gone into more debt than needed. ")
+            loan_intr = input("\n Enter the interest rate on the loan you took out (as a whole number, without the percent, such as '5' for 5%)")
+            loan_intr /= 100
+            loan_pd = input("\n Enter the amount of monthly payments to be made. If it is indefinite, reply '0'. \n")
+            print("\n Here is a 10 year projection on the amount you will owe per year: \n")
+            for year in range(10):
+                loan = (loan_amt * loan_intr) + loan_amt
+                print((year+1) +": $"+ round(loan,2))
+        elif loan_status == 'future':
+            loan_amt = tuition_owed
+            print("If you must take out a loan (but only do so if you absolutely need to), take out the exact amount as the amount of tuition you will owe, which for you is: $", loan_amt)
+            print("Also, it is best practice to take out the LOWEST interest rate possible. It would be best to be within the 1-7% range. \n")
+        else:
+            print("Excellent! You should be debt free then. Don't take out a loan unless you ABSOLUTELY need to. ")
+        
+        
+            
+            
     loan()
-                              
     def living():
         # input living expenses
-    food_expenses = float(input("Enter your estimated monthly food expenses: "))
-    rent = float(input("Enter your monthly rent"))
-    transportation_expenses = float(input("Enter your monthly transportation costs (bus, car): "))
-    long_distance_transportation = float(input("Enter your yearly transportation costs (plane, metro): "))                      
-    sum_of_living_expenses = food_expenses + rent + transportation_expenses + long_distance_transportation
-    print(sum_of_living_expenses)
-                              
     living()
     
 main()
