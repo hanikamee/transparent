@@ -34,7 +34,9 @@ def main():
     def loan():
         loan_status = input("Have you yet taken out a student loan for tuition? (reply either 'yes' or 'no' \n")
         if loan_status == 'yes':
-            print("Below, do not enter any special characters
+            print("Below, do not enter any special characters. Information below must be provided. \n")
+            loan_amt = input("Enter the amount of money you were loaned: \n")
+            loan_intr = input("Enter the interest rate on the loan you took out (as a whole number, without the percent, such as '5' for 5%):
     loan()
     def living():
         # input living expenses
